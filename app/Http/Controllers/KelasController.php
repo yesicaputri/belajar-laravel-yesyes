@@ -15,7 +15,10 @@ class KelasController extends Controller
     public function index()
     {
         //
-        return view('class.index');
+        // untuk mengambil data
+        $dataKelas = DB::table('kelas')->get();
+        // statement diatas sama dengan SELECT * FROM kelas
+        return view('class.index', compact('dataKelas'));
     }
 
     /**
@@ -38,14 +41,14 @@ class KelasController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-            'id' => 'required',
-            'nama_kelas' => 'required',
-            'jurusan' => 'required',
-        ]);
+        // $request->validate([
+        //     'id' => 'required',
+        //     'nama_kelas' => 'required',
+        //     'jurusan' => 'required',
+        // ]);
         $query = DB::table('kelas')->insert([
             "id" => $request["id"],
-            "nama_kelas" => $request["nama_kelas"],
+            "nama_kelas" => $request["namakelas"],
             "jurusan" => $request["jurusan"],
         ]);
 
@@ -61,6 +64,9 @@ class KelasController extends Controller
     public function show($id)
     {
         //
+        $showKelasById = Db::table('kelas')->where('id', $id)->first();
+        // diatas sama dengan SELECT * FROM kelas WHERE id = $id
+        return view('class.show', compact('showKelasById'));
     }
 
     /**

@@ -146,4 +146,4 @@ use App\Http\Controllers\KelasController;
 
 Route::resource('student', SiswaController::class);
 
-Route::resource('kelas', KelasController::class);
+Route::resource('class', KelasController::class);
