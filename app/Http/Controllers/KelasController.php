@@ -64,7 +64,7 @@ class KelasController extends Controller
     public function show($id)
     {
         //
-        $showKelasById = Db::table('kelas')->where('id', $id)->first();
+        $showKelasById = DB::table('kelas')->where('id', $id)->first();
         // diatas sama dengan SELECT * FROM kelas WHERE id = $id
         return view('class.show', compact('showKelasById'));
     }
@@ -78,6 +78,9 @@ class KelasController extends Controller
     public function edit($id)
     {
         //
+        $showKelasById = DB::table('kelas')->where('id', $id)->first();
+        // diatas sama dengan SELECT * FROM kelas WHERE id = $id
+        return view('class.edit', compact('showKelasById'));
     }
 
     /**
@@ -90,6 +93,20 @@ class KelasController extends Controller
     public function update(Request $request, $id)
     {
         //
+        // $request->validate([
+        //     'id' => 'required | unique:kelas',
+        //     'nama_kelas' => 'required',
+        //     'jurusan' => 'required',
+        // ]);
+        $query = DB::table('kelas')
+            ->where('id', $id)
+            ->update([
+            "id"            => $request["id"],
+            "nama_kelas"    => $request["namakelas"],
+            "jurusan"       => $request["jurusan"],
+        ]);
+
+        return redirect('/class');
     }
 
     /**
@@ -101,5 +118,8 @@ class KelasController extends Controller
     public function destroy($id)
     {
         //
+        $query = DB::table('kelas')->where('id', $id)->delete();
+
+        return redirect('/class');
     }
 }

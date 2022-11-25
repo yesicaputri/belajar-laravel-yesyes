@@ -13,10 +13,11 @@
               <!-- form start -->
               <form action="/student/{{ $showSiswaById->id }}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="card-body">
                   <div class="form-group">
                     <label for="inputNIS">Nomor Indux Siswa</label>
-                    <input type="text" name="nis" class="form-control" id="inputNIS" placeholder="Enter Nomor Indux Siswa" value="{{ $showSiswaById->nomor_induk_siswa }}" disabled >
+                    <input type="text" name="nis" class="form-control" id="inputNIS" placeholder="Enter Nomor Indux Siswa" value="{{ $showSiswaById->nomor_induk_siswa }}" require >
                   @error('nis')
                     <div class="alert alert-danger">
                         {{ $message }}
@@ -47,8 +48,8 @@
                   <div class="form-group">
                     <label>Jenis Kelamin</label>
                   <select class="form-control" name="jenis_kelamin">
-                    <option value="L" disabled {{ $showSiswaById->jenis_kelamin == "L" ? "selected" : "" }}>Laki-laki</option>
-                    <option value="P" disabled {{ $showSiswaById->jenis_kelamin == "P" ? "selected" : "" }}>Perempuan</option>
+                    <option value="L" require {{ $showSiswaById->jenis_kelamin == "L" ? "selected" : "" }}>Laki-laki</option>
+                    <option value="P" require {{ $showSiswaById->jenis_kelamin == "P" ? "selected" : "" }}>Perempuan</option>
                   </select>
                 </div>
                 @error('jenis_kelamin')

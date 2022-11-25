@@ -12,7 +12,7 @@
           <img src="{{ asset('adminlte/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">Yesica Putri Purba</a>
         </div>
       </div>
 
@@ -171,6 +171,22 @@
             <i class="nav-icon fas fa-user"></i>
             <p>
               User
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('indexStudent') }}" class="nav-link">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+              Data Table Siswa
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('indexClass') }}" class="nav-link">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+              Data Table Kelas
             </p>
           </a>
         </li>

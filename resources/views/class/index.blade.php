@@ -11,6 +11,12 @@
     <h3 class="card-title">Halaman Data Table</h3>
     </div>
     <div class="card-body">
+    <div class="card-body">
+        <a href="{{ route('classCreate') }}" class="btn btn-primary">
+          <i class="fas fa-plus"></i>
+          Class Create
+        </a>
+      </div>
         <table id="example1" class="table table-bordered table-striped">
           <thead>
           <tr>
@@ -30,8 +36,12 @@
             <td>{{ $value->jurusan }}</td>
             <td>
               <a class="btn btn-info mr-3" href="class/{{$value->id}}">Detail</a>
-              <a class="btn btn-warning mr-3" href="{{$value->id}}/edit">Edit</a>
-              <button class="btn btn-danger ">Delete</button>
+              <a class="btn btn-warning mr-3" href="class/{{$value->id}}/edit">Edit</a>
+              <form action="/class/{{$value->id}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <input type="submit" class="btn btn-danger" value="Delete">
+              </form>
             </td>
           </tr>
           @empty

@@ -95,12 +95,12 @@ class SiswaController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $request->validate([
-            'nomor_induk_siswa' => 'required | unique:siswa',
-            'nama' => 'required',
-            'alamat' => 'required',
-            'jenis_kelamin' => 'required'
-        ]);
+        // $request->validate([
+        //     'nomor_induk_siswa' => 'required | unique:siswa',
+        //     'nama' => 'required',
+        //     'alamat' => 'required',
+        //     'jenis_kelamin' => 'required'
+        // ]);
         $query = DB::table('siswa')
             ->where('id', $id)
             ->update([

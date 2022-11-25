@@ -10,13 +10,20 @@
     <div class="card-header">
     <h3 class="card-title">Halaman Data Table</h3>
     </div>
-    <div class="card-body">
+      <div class="card-body">
+      <div class="card-body">
+        <a href="{{ route('studentCreate') }}" class="btn btn-primary">
+          <i class="fas fa-plus"></i>
+          Student Create
+        </a>
+      </div>
         <table id="example2" class="table table-bordered table-striped">
           <thead>
           <tr>
             <th>No</th>
             <th>NIS</th>
             <th>Nama</th>
+            <th>Alamat</th>
             <th>Jenis Kelamin</th>
             <th>Actions</th>
           </tr>
@@ -27,6 +34,7 @@
             <td>{{ $item + 1 }}</td>
             <td>{{ $value->nomor_induk_siswa }}</td>
             <td>{{ $value->nama }}</td>
+            <td>{{ $value->alamat }}</td>
             <td>
                 {{ $value->jenis_kelamin }}
             </td>
@@ -47,7 +55,6 @@
 
           @endforelse
         </table>
-      </div>
       <!-- /.card-body -->
     </div>
 </div>
